@@ -1,2 +1,2 @@
-# freelancer-website
-A basic freelancer website showing resume and a blog
+# Hello worl
+This is the basic hello world program
