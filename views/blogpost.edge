@@ -1,0 +1,126 @@
+@layout('layouts.app')
+
+@section('content')
+  <!-- Page Content -->
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="container">
+    
+
+    <div class="row mt-5">
+
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+        
+
+        <h1 class="my-4 text-center text-secondary mt-5">Fido's Blog
+          <small>...an idea</small>
+        </h1>
+
+        <div class="divider-custom">
+          <div class="divider-custom-line"></div>
+          <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+          <div class="divider-custom-line"></div>
+      </div>
+
+        <!-- Blog Post -->
+        @each(post in posts)
+
+        <div class="card mb-4">
+          <img class="card-img-top" src="{{ post.image }}" alt="uploaded images">
+          <div class="card-body">
+            <h2 class="card-title">{{ post.title }}</h2>
+            <p class="card-text">{{ post.subtitle }}</p>
+           <a href="/blogpost/post/{{ post._id }}" class="btn btn-primary">Read More &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+            Posted on {{ post.createdAt.toDateString() }} by
+            <a href="#">{{ post.author.username }}</a>
+          </div>
+        </div>
+
+        @endeach
+        
+
+        <!-- Pagination -->
+        <ul class="pagination justify-content-center mb-4">
+          <li class="page-item">
+            <a class="page-link" href="#">&larr; Older</a>
+          </li>
+          <li class="page-item disabled">
+            <a class="page-link" href="#">Newer &rarr;</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+
+        <!-- Search Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Search</h5>
+          <div class="card-body">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-append">
+                <button class="btn btn-secondary" type="button">Go!</button>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categories Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Categories</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">Philosophy</a>
+                  </li>
+                  <li>
+                    <a href="#">Life</a>
+                  </li>
+                  <li>
+                    <a href="#">Religion</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">Web Design</a>
+                  </li>
+                  <li>
+                    <a href="#">Web App/AI</a>
+                  </li>
+                  <li>
+                    <a href="#">Web testing</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Quote of the week</h5>
+          <div class="card-body">
+            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+          </div>
+        </div>
+
+      </div>
+
+      
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+@endsection
